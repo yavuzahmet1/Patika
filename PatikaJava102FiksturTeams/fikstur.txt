@@ -1,0 +1,73 @@
+package com.company;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Football {
+    private List<Teams> teams;
+    private int teamSize;
+    private ArrayList<ArrayList<String>> rounds;
+
+    public Football(List<Teams> teams) {
+        this.teams = teams;
+        this.teamSize = teams.size();
+    }
+
+
+    public List<Teams> getTeams() {
+        return this.teams;
+    }
+
+    public void setTeams(List<Teams> teams) {
+        this.teams = teams;
+    }
+
+    public void footballCek(){
+        int roundCount = this.teamSize-1;
+        int matchCountPerRound=this.teamSize/2;
+        ArrayList<ArrayList<String>> round = new ArrayList<>((roundCount*2));
+        for(int i=0; i < roundCount*2; i++) {
+            round.add(new ArrayList());
+        }
+
+        for (int i = 0; i < roundCount; i++) {
+            for(int j=0;j<matchCountPerRound;j++){
+                int firstIndex=j;
+                int secondIndex=(teamSize-1)-j;
+                int k = i+this.teamSize-1;
+                if (i % 2 == 0){
+                    round.get(i).add(this.teams.get(firstIndex).getTeamName() +"-"+ this.teams.get(secondIndex).getTeamName());
+                    round.get(k).add(this.teams.get(secondIndex).getTeamName() +"-"+this.teams.get(firstIndex).getTeamName());
+
+                }else {
+                    round.get(i).add(this.teams.get(secondIndex).getTeamName() +"-"+this.teams.get(firstIndex).getTeamName());
+                    round.get(k).add(this.teams.get(firstIndex).getTeamName() +"-"+ this.teams.get(secondIndex).getTeamName());
+                }
+            }
+
+            List<Teams> newList=new ArrayList<>();
+            newList.add(this.teams.get(0));
+            newList.add(this.teams.get(this.teams.size()-1));
+            for(int k=1;k<this.teams.size()-1;k++){
+                newList.add(this.teams.get(k));
+            }
+            this.teams = newList;
+        }
+
+        this.rounds = round;
+    }
+
+    public void footballPrint(){
+        int roundCount = (this.teamSize-1)*2;
+        for (int i = 0; i < roundCount; i++) {
+
+            System.out.println("Round:" + (i+1));
+            System.out.println("--------------------------------");
+            for(int j=0; j < this.rounds.get(i).size(); j++){
+                System.out.println(this.rounds.get(i).get(j) );
+            }
+            //System.out.println(this.rounds.get(i).toString());
+            System.out.println("--------------------------------");
+        }
+    }
+}

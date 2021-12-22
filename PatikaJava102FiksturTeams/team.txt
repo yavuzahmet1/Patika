@@ -1,0 +1,68 @@
+package com.company;
+
+public class Teams {
+    private String teamName;
+    private int teamPoint;
+    private int teamWin;
+    private int teamDefeat;
+    private int teamDraw;
+    private String[] rounds;
+
+
+    public Teams(String teamName, int teamPuan, int teamWin, int teamDefeat, int teamDraw) {
+        this.teamName = teamName;
+        this.teamPoint = teamPuan;
+        this.teamWin = teamWin;
+        this.teamDefeat = teamDefeat;
+        this.teamDraw = teamDraw;
+    }
+
+    public String getTeamName() {
+        return this.teamName;
+    }
+
+    public void setTeamName(String teamName) {
+        this.teamName = teamName;
+    }
+
+    public int getTeamPoint() {
+        return this.teamPoint;
+    }
+
+    public void setTeamPoint(int teamPoint) {
+        this.teamPoint = teamPoint;
+    }
+
+    public int getTeamWin() {
+        return this.teamWin;
+    }
+
+    public void setTeamWin(int teamWin) {
+        this.teamWin = teamWin;
+    }
+
+    public int getTeamDefeat() {
+        return this.teamDefeat;
+    }
+
+    public void setTeamDefeat(int teamDefeat) {
+        this.teamDefeat = teamDefeat;
+    }
+
+    public int getTeamDraw() {
+        return this.teamDraw;
+    }
+
+    public void setTeamDraw(int teamDraw) {
+        this.teamDraw = teamDraw;
+    }
+
+    public String[] getRounds() {
+        return this.rounds;
+    }
+
+    public void setRounds(String[] rounds) {
+        this.rounds = rounds;
+    }
+
+}

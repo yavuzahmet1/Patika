@@ -1,0 +1,29 @@
+package com.company;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+        ArrayList<Teams> teamList = new ArrayList<>();
+        teamList.add(new Teams("Fenerbahçe",0, 0, 0, 0));
+        teamList.add(new Teams("Galatasaray",0, 0, 0, 0));
+        teamList.add(new Teams("Beşiktaş",0, 0, 0, 0));
+        teamList.add(new Teams("Bursaspor",0, 0, 0, 0));
+        teamList.add(new Teams("Trabzonspor",0, 0, 0, 0));
+        teamList.add(new Teams("Başakşehir",0, 0, 0, 0));
+
+        System.out.println("ÇİFT TAKIM SENARYOSU");
+        System.out.println("###############################");
+        Football football = new Football(teamList);
+        football.footballCek();
+        football.footballPrint();
+
+        System.out.println("TEK TAKIM SENARYOSU");
+        System.out.println("******************************");
+
+        teamList.add(new Teams("Bay",0, 0, 0, 0));
+        Football football1 = new Football(teamList);
+        football1.footballCek();
+        football1.footballPrint();
+    }
+}
