@@ -1,0 +1,72 @@
+import java.util.*;
+
+public class Main {
+    static long reverse(long num) {
+        long temp = num, rev = 0, lastnum;
+        while (temp != 0) {
+            lastnum = temp % 10;
+            rev = (rev * 10) + lastnum;
+            temp /= 10;
+        }
+        return rev;
+    }
+
+    static int palindomNot(long x) {
+        int sayac = 0;
+        long a = x + reverse(x);
+        while (a != reverse(a)) {
+            sayac += 1;
+            a += reverse(a);
+        }
+        return sayac;
+    }
+
+    static long loop(int a) {
+        long total = a + reverse(a);
+        return total;
+    }
+
+    public static void main(String[] args) {
+        //palindomNot(99);
+        int sayac = 0, temp = 0;
+
+        ArrayList<Integer> serialNumbers = new ArrayList<>();
+        ArrayList<Integer> counterNumbers = new ArrayList<>();
+        ArrayList<Integer> list = new ArrayList<>();
+
+
+        for (int i = 11; i < 100; i++) {
+            sayac = 0;
+            if (loop(i) == reverse(loop(i))) {
+                //System.out.println(i + " Palindrom sayıdır");
+            } else {
+                //System.out.println(i + " sayisi " + palindomNot(i) + " adımda bulunmuştur");
+                counterNumbers.add(palindomNot(i));
+                serialNumbers.add(i);
+            }
+        }
+        System.out.println("Sıralanıyor...");
+        System.out.println(counterNumbers);
+        System.out.println(serialNumbers);
+        for (Integer x : counterNumbers) {
+            if (x > temp) {
+                temp = x;
+            }
+        }
+        for (Integer y : counterNumbers) {
+            if (y == temp) {
+                //list.add(counterNumbers.indexOf(x));
+                System.out.println(temp);
+                //System.out.println(counterNumbers.lastIndexOf(temp));
+               list.add(counterNumbers.indexOf(temp));
+            }
+        }
+        System.out.println("***" + list);
+        System.out.println(temp);
+        for (Integer k : list) {
+                System.out.print(serialNumbers.get(k)+" -- ");
+            }
+        }
+
+
+    }
